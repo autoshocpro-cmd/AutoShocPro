@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoShocPro PRO | Autoservis & Pneuservis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Záhlaví s navigací (čisté, bez loga) -->
+<header class="navbar">
+    <nav>
+        <ul>
+            <li><a href="#autoservis">Autoservis</a></li>
+            <li><a href="#pneuservis">Pneuservis</a></li>
+            <li><a href="#o-nas">Něco o nás</a></li>
+            <li><a href="#galerie">Naše práce</a></li>
+            <li><a href="#recenze">Recenze</a></li>
+            <li><a href="#kontakty">Kontakty</a></li>
+        </ul>
+    </nav>
+    <div class="header-actions">
+        <a href="tel:+420774204659" class="btn-registrace">Zavolat</a>
+    </div>
+</header>
+
+<!-- Úvodní sekce s vycentrovaným logem nad H1 -->
+<section id="uvod" class="hero">
+    <video autoplay loop muted playsinline class="hero-video">
+        <source src="video.mp4" type="video/mp4">
+        Váš prohlížeč nepodporuje přehrávání videa.
+    </video>
+    
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <div class="hero-logo">
+            <img src="logo.png" alt="AutoShocPro PRO Logo">
+        </div>
+        <h1>AutoShocPro PRO</h1>
+        <p class="hero-subtitle">Profesionální péče o vaše vozidlo, opravy podvozků a rychlý pneuservis.</p>
+        <div class="hero-buttons">
+            <a href="#autoservis" class="btn-primary">Naše služby</a>
+            <a href="#kontakty" class="btn-secondary">Kde nás najdete</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Sekce Autoservis -->
+    <section id="autoservis" class="autoservis-section section-container">
+        <div class="section-header">
+            <h2>Autoservis</h2>
+            <p>Kompletní servisní péče o osobní a užitková vozidla běžných značek.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Opravy podvozků & Tlumiče</h3>
+                <p>Specializujeme se na diagnostiku a výměny tlumičů, pružin, čepů, ramen a ložisek pro maximální komfort a bezpečnou jízdu.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Opravy v motorové části</h3>
+                <p>Generální i drobné opravy motorů, výměny rozvodů, vodních čerpadel, těsnění a diagnostika závad pohonných jednotek.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Výfukové systémy</h3>
+                <p>Opravy a výměny poškozených dílů výfuků, vlnovců, rezonátorů, katalyzátorů i DPF filtrů pevných částic.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Příprava & Zajištění STK</h3>
+                <p>Kompletní prohlídka vozu před STK a Emisemi, odstranění případných závad a vyřízení kontroly za vás bez starostí.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Diagnostika & Elektrika</h3>
+                <p>Počítačová diagnostika řídicích jednotek, čtení a mazání chybových kódů, hledání závad v elektroinstalaci.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Brzdový systém & Oleje</h3>
+                <p>Kontrola a výměna brzdových kotoučů, destiček, brzdové kapaliny, pravidelné výměny motorových olejů a filtrů.</p>
+            </div>
+        </div>
+
+        <div class="calc-toggle-wrapper">
+            <button id="btn-toggle-autoservis" class="btn-glass-neon" onclick="toggleAutoservisCenik()">
+                Zobrazit ceník služeb
+            </button>
+        </div>
+
+        <div id="rozbalovaci-autoservis-cenik" class="calc-card hidden-calc price-table-card">
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Servisní úkon</th>
+                        <th>Cena od</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hodinová sazba práce</strong></td>
+                        <td>700 Kč / hod</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Diagnostika vozidla & paměť závad</strong></td>
+                        <td>400 Kč</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Montáž vlastních dílů zákazníka</strong></td>
+                        <td>700 Kč / hod</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Výměna oleje a filtrů</strong> (práce)</td>
+                        <td>500 Kč</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Servis brzd</strong> (jedna náprava)</td>
+                        <td>700 Kč</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Výměna tlumiče / pružiny</strong> (1 ks)</td>
+                        <td>600 Kč</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Příprava na STK + Emise</strong></td>
+                        <td>800 Kč</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zajištění STK + Emisí</strong></td>
+                        <td>1 500 Kč + poplatky STK</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="price-disclaimer">
+                <p>* Nejsme plátci DPH.</p>
+                <p>* Ceny úkonů jsou orientační a udávají cenu pouze za práci (náhradní díly nejsou v ceníku započítány).</p>
+            </div>
+
+            <div style="margin-top: 20px; text-align: center;">
+                <a href="#kontakty" class="btn-glass inline-block py-3 px-6">
+                    Kontaktovat pro termín
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce Pneuservis -->
+    <section id="pneuservis" class="section-container pneuservis-section">
+        <div class="section-header">
+            <h2>Pneuservis</h2>
+            <p>Přezouvání a vyvažování pro osobní auta, SUV i dodávky.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Osobní, SUV & Dodávky</h3>
+                <p>Kompletní přezutí a vyvážení kol pro všechny běžné typy vozidel – od osobních aut až po dodávky.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Špičkové vybavení</h3>
+                <p>Zouvačka s pomocným ramenem pro bezpečnou montáž kol bez poškození ráfků.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Opravy defektů</h3>
+                <p>Rychlá oprava průpichů pneumatik na počkání, kontrola tlaku a vyvážení na přesných strojích.</p>
+            </div>
+        </div>
+
+        <div class="calc-toggle-wrapper">
+            <button type="button" class="btn-glass-neon" onclick="toggleKalkulator()">
+                Kalkulačka přezutí kol
+            </button>
+        </div>
+
+        <div id="rozbalovaci-kalkulacka" class="calc-card hidden-calc">
+            <form id="pneu-form" class="space-y-4">
+                <div class="form-group">
+                    <label for="typ-auta">Typ vozidla</label>
+                    <select id="typ-auta" onchange="spocitejCenu()">
+                        <option value="osobni">Osobní automobil</option>
+                        <option value="suv">VAN / OFFROAD / SUV (+200 Kč / sada)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="velikost-kol">Velikost kol (R)</label>
+                    <select id="velikost-kol" onchange="spocitejCenu()">
+                        <option value="13-15">13" – 15"</option>
+                        <option value="16-17">16" – 17"</option>
+                        <option value="18-20">18" – 20"</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="typ-sluzby">Požadovaný úkon</label>
+                    <select id="typ-sluzby" onchange="spocitejCenu()">
+                        <option value="komplet">Komplet přezutí vč. vyvážení s montáží na vůz</option>
+                        <option value="bez-montaze">Komplet přezutí vč. vyvážení BEZ montáže na vůz</option>
+                        <option value="vyvazeni-montaz">Pouze vyvážení s montáží na vůz (hotové disky)</option>
+                        <option value="oprava">Oprava defektu / hříbek / záplata (1 kolo)</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="group-pocet">
+                    <label for="pocet-kol">Počet kol</label>
+                    <select id="pocet-kol" onchange="spocitejCenu()">
+                        <option value="4">Sada (4 kola)</option>
+                        <option value="2">2 kola</option>
+                        <option value="1">1 kolo</option>
+                    </select>
+                </div>
+
+                <div id="vysledek-ceny" class="calc-result">
+                    <span>Předběžná cena úkonu</span>
+                    <strong id="cena-hodnota">1 180 Kč</strong>
+                    <p class="calc-disclaimer">
+                        Cena je orientační. Finální částka zahrnuje základní závaží do 30g/kolo. Nadstandardní závaží, ventily či chemie (vulkanizační lepidlo, tmelení) budou započítány dle reálné spotřeby.
+                    </p>
+                </div>
+
+                <div class="pt-4">
+                    <a href="#kontakty" class="btn-glass w-full py-3 block text-center">
+                        Mám zájem o servis
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sekce O nás -->
+    <section id="o-nas" class="section-container about-section">
+        <div class="about-card">
+            <div class="section-header text-left">
+                <h2>O naší dílně</h2>
+                <p class="about-subtitle">Poctivá práce, osobní přístup a férové jednání.</p>
+            </div>
+
+            <div class="about-content">
+                <p>
+                    Jsme menší, začínající auto a pneuservis. Nehraje si na obří autorizované centrum ani netvrdíme, že umíme zázraky na počkání. Co ale garantujeme, je <strong>poctivý přístup ke každému autu i zákazníkovi</strong>.
+                </p>
+                <p>
+                    Do práce dáváme maximum. Každou zakázku řešíme pečlivě, neschováváme se za složité fráze a vždy s vámi předem otevřeně probereme, co je potřeba udělat a kolik to bude stát.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-feature">
+                    <span class="feature-title">Férová domluva</span>
+                    <p>Co řekneme, to platí. Ceny i termíny držíme bez skrytých poplatků.</p>
+                </div>
+                <div class="about-feature">
+                    <span class="feature-title">Osobní péče</span>
+                    <p>Nejste pro nás jen číslo zakázky. S autem zacházíme jako s vlastním.</p>
+                </div>
+                <div class="about-feature">
+                    <span class="feature-title">Snaha vyhovět</span>
+                    <p>Hledáme řešení na míru vašim možnostem a potřebám vašeho vozu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce Naše práce (Fotogalerie) -->
+    <section id="galerie" class="section-container photo-section">
+        <div class="section-header">
+            <h2>Naše práce</h2>
+            <p>Ukázka z naší dílny – přezouvání, opravy i servisní úkony.</p>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="" alt="" onerror="this.src=''">
+                <div class="gallery-overlay"><span>Připravujeme</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="" alt="" onerror="this.src=''">
+                <div class="gallery-overlay"><span>Připravujeme</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="" alt="" onerror="this.src=''">
+                <div class="gallery-overlay"><span>Připravujeme</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce Recenze -->
+    <section id="recenze" class="section-container reviews-section">
+        <div class="section-header">
+            <h2>Recenze</h2>
+            <p>Zakládáme si na poctivé práci. Byli jste u nás? Budeme rádi za vaši zpětnou vazbu.</p>
+        </div>
+
+        <div class="reviews-empty-box">
+            <p>Zatím zde nemáme žádné zobrazené recenze. Přijeďte k nám vyzkoušet naše služby a buďte mezi prvními, kdo nám zanechá hodnocení!</p>
+            <a href="#kontakty" class="btn-glass-neon" style="margin-top: 20px;">Napsat hodnocení / Kontaktovat nás</a>
+        </div>
+    </section>
+
+    <!-- Sekce Kontakty -->
+    <section id="kontakty" class="section-container kontakty-section">
+        <div class="kontakty-card">
+            <div class="section-header text-center">
+                <h2>Kde nás najdete</h2>
+                <p>Jsme tu pro vás. Neváhejte nás kontaktovat nebo se zastavit osobně.</p>
+            </div>
+
+            <div class="kontakty-grid">
+                <div class="kontakt-item">
+                    <span class="kontakt-label">Společnost</span>
+                    <strong>AutoShocPro</strong>
+                </div>
+
+                <div class="kontakt-item">
+                    <span class="kontakt-label">Vedoucí servisu</span>
+                    <strong>Jiří Moucha</strong>
+                </div>
+
+                <div class="kontakt-item">
+                    <span class="kontakt-label">Telefon</span>
+                    <a href="tel:+420774204659">+420 774 204 659</a>
+                </div>
+
+                <div class="kontakt-item">
+                    <span class="kontakt-label">E-mail</span>
+                    <a href="mailto:autoshocpro@gmail.com">autoshocpro@gmail.com</a>
+                </div>
+
+                <div class="kontakt-item full-width">
+                    <span class="kontakt-label">Sídlo & Adresa dílny</span>
+                    <strong>Pastýřská 429, 274 01, Slaný</strong>
+                </div>
+            </div>
+
+            <div class="kontakty-action">
+                <a href="tel:+420774204659" class="btn-glass-neon">Zavolat do servisu</a>
+            </div>
+
+            <!-- Mapa Google -->
+            <div class="mapa-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d189.21757805864732!2d14.082292520064698!3d50.23111431257482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470bc9000f2eda45%3A0x79b6521310ce6dd0!2sAUTOMEDICK!5e1!3m2!1scs!2scz!4v1787350655395!5m2!1scs!2scz" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript obsluha tlačítek a kalkulátoru -->
+    <script>
+        function toggleAutoservisCenik() {
+            let cenik = document.getElementById('rozbalovaci-autoservis-cenik');
+            if (cenik.classList.contains('hidden-calc')) {
+                cenik.classList.remove('hidden-calc');
+            } else {
+                cenik.classList.add('hidden-calc');
+            }
+        }
+
+        function toggleKalkulator() {
+            let calc = document.getElementById('rozbalovaci-kalkulacka');
+            if (calc.classList.contains('hidden-calc')) {
+                calc.classList.remove('hidden-calc');
+                spocitejCenu();
+            } else {
+                calc.classList.add('hidden-calc');
+            }
+        }
+
+        function spocitejCenu() {
+            let auto = document.getElementById('typ-auta').value;
+            let velikost = document.getElementById('velikost-kol').value;
+            let sluzba = document.getElementById('typ-sluzby').value;
+            let pocet = parseInt(document.getElementById('pocet-kol').value);
+
+            if (sluzba === 'oprava') {
+                document.getElementById('group-pocet').style.display = 'none';
+                pocet = 1;
+            } else {
+                document.getElementById('group-pocet').style.display = 'block';
+            }
+
+            let cenaSada = 0;
+
+            if (auto === 'osobni') {
+                if (sluzba === 'komplet') {
+                    if (velikost === '13-15') cenaSada = 1180;
+                    else if (velikost === '16-17') cenaSada = 1280;
+                    else if (velikost === '18-20') cenaSada = 1480;
+                } else if (sluzba === 'bez-montaze' || sluzba === 'vyvazeni-montaz') {
+                    if (velikost === '13-15') cenaSada = 860;
+                    else if (velikost === '16-17') cenaSada = 960;
+                    else if (velikost === '18-20') cenaSada = 1060;
+                }
+            } else {
+                if (sluzba === 'komplet') {
+                    if (velikost === '13-15') cenaSada = 1380;
+                    else if (velikost === '16-17') cenaSada = 1480;
+                    else if (velikost === '18-20') cenaSada = 1580;
+                } else if (sluzba === 'bez-montaze' || sluzba === 'vyvazeni-montaz') {
+                    if (velikost === '13-15') cenaSada = 960;
+                    else if (velikost === '16-17') cenaSada = 1060;
+                    else if (velikost === '18-20') cenaSada = 1160;
+                }
+            }
+
+            let vysledek = 0;
+            if (sluzba === 'oprava') {
+                vysledek = 230;
+            } else {
+                vysledek = Math.round((cenaSada / 4) * pocet);
+            }
+
+            document.getElementById('cena-hodnota').innerText = vysledek.toLocaleString('cs-CZ') + ' Kč';
+        }
+    </script>
+</body>
+</html>

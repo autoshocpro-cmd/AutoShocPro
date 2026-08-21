@@ -1,0 +1,675 @@
+/* Plynulé rolování při kliknutí na odkaz v menu */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Základní nastavení barev a písma */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #c0c0c0;
+}
+
+h1, h2, h3 {
+    color: #e0e0e0;
+}
+
+p {
+    color: #b0b0b0;
+}
+
+/* Záhlaví přes celou šířku */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 4%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.navbar nav {
+    flex-grow: 1;
+    margin-right: 30px; /* Mezera mezi poslední položkou menu a tlačítkem Zavolat */
+}
+
+
+.logo img {
+    height: 112px;
+    width: auto;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.03);
+}
+
+/* Rovnoměrné rozprostření nadpisů v menu */
+.navbar nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between; /* Rozprostře odkazující texty rovnoměrně po celé šířce nav baru */
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar nav a {
+    color: #c0c0c0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+    white-space: nowrap; /* Zabrání nechtěnému zalomení textu na dva řádky */
+}
+
+.navbar nav a:hover {
+    color: #FF8C00;
+}
+
+/* Tlačítko Zavolat v menu */
+.btn-registrace {
+    background-color: transparent;
+    color: #FF8C00;
+    border: 1px solid #FF8C00;
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.btn-registrace:hover {
+    background-color: rgba(255, 140, 0, 0.2);
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+}
+
+/* Úvodní sekce (Hero) */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.70);
+    z-index: 2;
+}
+
+/* Vycentrování obsahu úvodní sekce */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zajíští perfektní vycentrování loga i textů na střed */
+    text-align: center;
+}
+¨
+/* Úprava loga nad nápadným nadpisem */
+.hero-logo {
+    margin-bottom: 15px; /* Mezera mezi logem a nadpisem H1 */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-logo img {
+    max-width: 220px; /* Upravte podle potřeby, aby opticky ladilo k nadpisu */
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 12px rgba(255, 140, 0, 0.45)); /* Jemný oranžový zářící efekt */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #e5e5e5;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    color: #c0c0c0;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-primary {
+    background-color: #FF8C00;
+    color: #121212;
+}
+
+.btn-secondary {
+    border: 2px solid #FF8C00;
+    color: #FF8C00;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-2px);
+}
+
+/* Obecná sekce */
+.section-container {
+    padding: 120px 8% 80px 8%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #FF8C00;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    background-color: #1e1e1e;
+    border: 1px solid rgba(255, 140, 0, 0.2);
+    border-radius: 12px;
+    padding: 30px 20px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: #FF8C00;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+.service-card p {
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Pozadí sekcí */
+.autoservis-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.4)), 
+                url('autoservis-bg.png') center/cover no-repeat fixed;
+    border-top: 1px solid rgba(255, 140, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.autoservis-section .service-card {
+    background-color: rgba(18, 18, 18, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 140, 0, 0.4);
+}
+
+.pneuservis-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(rgba(18, 18, 18, 0.5), rgba(18, 18, 18, 0.5)), 
+                url('pneuservis-bg.jpg') center/cover no-repeat fixed;
+    border-top: 1px solid rgba(255, 140, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.pneuservis-section .service-card {
+    background-color: rgba(18, 18, 18, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+/* Neonové tlačítko Kalkulátor */
+.calc-toggle-wrapper {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-glass-neon {
+    display: inline-block;
+    padding: 15px 35px;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    background: rgba(255, 140, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 140, 0, 0.6);
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.4), inset 0 0 15px rgba(255, 140, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-glass-neon:hover {
+    background: rgba(255, 140, 0, 0.35);
+    color: #ffffff;
+    border-color: #FF8C00;
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.8), inset 0 0 20px rgba(255, 140, 0, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Kalkulátor card */
+.calc-card {
+    max-width: 550px;
+    margin: 0 auto;
+    background-color: rgba(20, 20, 20, 0.85);
+    border: 1px solid rgba(255, 140, 0, 0.4);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+}
+
+.hidden-calc {
+    display: none;
+}
+
+#rozbalovaci-kalkulacka, #rozbalovaci-autoservis-cenik {
+    margin-top: 30px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    background-color: #121212;
+    border: 1px solid rgba(255, 140, 0, 0.3);
+    border-radius: 10px;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.btn-glass {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 140, 0, 0.15);
+    border: 1px solid #FF8C00;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-glass:hover {
+    background: #FF8C00;
+    color: #121212;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+}
+
+.calc-result {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 140, 0, 0.2);
+    text-align: center;
+}
+
+.calc-result span {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.calc-result strong {
+    display: block;
+    font-size: 2rem;
+    color: #FF8C00;
+    margin-top: 4px;
+}
+
+.calc-disclaimer {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    margin-top: 12px;
+    line-height: 1.4;
+    font-style: italic;
+}
+
+/* O nás sekce */
+.about-section {
+    position: relative;
+    padding: 80px 20px;
+    background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.75)), 
+                url('o-nas-bg.jpg') center/cover no-repeat fixed;
+    border-top: 1px solid rgba(255, 140, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.about-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgba(20, 20, 20, 0.88);
+    border: 1px solid rgba(255, 140, 0, 0.35);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.about-subtitle {
+    color: #FF8C00;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+.about-content {
+    color: #e2e8f0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 25px 0 35px 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.about-feature {
+    background: rgba(30, 30, 30, 0.7);
+    border-left: 3px solid #FF8C00;
+    padding: 18px;
+    border-radius: 0 10px 10px 0;
+}
+
+.feature-title {
+    display: block;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+/* --- FOTOGALERIE --- */
+.photo-section {
+    position: relative;
+    padding: 80px 20px;
+    background: linear-gradient(rgba(18, 18, 18, 0.65), rgba(18, 18, 18, 0.65)), 
+                url('nase-prace-bg.jpg') center/cover no-repeat fixed;
+    border-top: 1px solid rgba(255, 140, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 140, 0, 0.3);
+    aspect-ratio: 4/3;
+    background-color: rgba(20, 20, 20, 0.8);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    padding: 15px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* --- RECENZE --- */
+.reviews-section {
+    position: relative;
+    padding: 80px 20px;
+    background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7)), 
+                url('recenze-bg.jpg') center/cover no-repeat fixed;
+    border-top: 1px solid rgba(255, 140, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.reviews-empty-box {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: rgba(20, 20, 20, 0.85);
+    border: 1px solid rgba(255, 140, 0, 0.3);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+}
+
+.reviews-empty-box p {
+    color: #cbd5e1;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* --- CENÍK AUTOSERVISU --- */
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.price-table th, .price-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255, 140, 0, 0.15);
+}
+
+.price-table th {
+    color: #FF8C00;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-table td {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+.price-table td strong {
+    color: #ffffff;
+}
+
+.price-table tbody tr:hover {
+    background-color: rgba(255, 140, 0, 0.05);
+}
+
+.price-disclaimer {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+    .price-table th, .price-table td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+}
+
+/* --- SEKCE KONTAKTY --- */
+.kontakty-section {
+    position: relative;
+    padding: 100px 20px;
+    background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.75)), 
+                url('kontakty-bg.jpg') center/cover no-repeat fixed;
+    border-top: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.kontakty-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(20, 20, 20, 0.88);
+    border: 1px solid rgba(255, 140, 0, 0.35);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.kontakty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.kontakt-item {
+    background: rgba(30, 30, 30, 0.6);
+    padding: 15px 20px;
+    border-radius: 10px;
+    border-left: 3px solid #FF8C00;
+}
+
+.kontakt-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.kontakt-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.kontakt-item strong, 
+.kontakt-item a {
+    color: #ffffff;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.kontakt-item a:hover {
+    color: #FF8C00;
+}
+
+.kontakty-action {
+    text-align: center;
+    margin-top: 35px;
+}
+
+/* --- MAPA v Kontaktech --- */
+.mapa-wrapper {
+    margin-top: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 140, 0, 0.35);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.mapa-wrapper iframe {
+    display: block;
+    filter: opacity(0.9) contrast(1.05);
+}
