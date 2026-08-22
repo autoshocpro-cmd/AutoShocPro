@@ -1,9 +1,7 @@
-/* Plynulé rolování při kliknutí na odkaz v menu */
 html {
     scroll-behavior: smooth;
 }
 
-/* Základní nastavení barev a písma */
 * {
     margin: 0;
     padding: 0;
@@ -24,12 +22,12 @@ p {
     color: #b0b0b0;
 }
 
-/* Záhlaví přes celou šířku */
+/* --- ZÁHLAVÍ (HEADER) S LOGEM VLEVO --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 4%;
+    padding: 10px 4%;
     position: fixed;
     top: 0;
     width: 100%;
@@ -39,32 +37,28 @@ p {
     border-bottom: 1px solid rgba(255, 140, 0, 0.3);
 }
 
-.navbar nav {
-    flex-grow: 1;
-    margin-right: 30px; /* Mezera mezi poslední položkou menu a tlačítkem Zavolat */
-}
-
-
-.logo img {
-    height: 112px;
+.nav-logo img {
+    height: 55px;
     width: auto;
     display: block;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s;
 }
 
-.logo img:hover {
-    transform: scale(1.03);
+.nav-logo img:hover {
+    transform: scale(1.05);
 }
 
-/* Rovnoměrné rozprostření nadpisů v menu */
+.navbar nav {
+    flex-grow: 1;
+    margin: 0 30px;
+}
+
 .navbar nav ul {
     display: flex;
     list-style: none;
-    justify-content: space-between; /* Rozprostře odkazující texty rovnoměrně po celé šířce nav baru */
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 .navbar nav a {
@@ -73,14 +67,13 @@ p {
     font-weight: 600;
     font-size: 0.95rem;
     transition: color 0.3s;
-    white-space: nowrap; /* Zabrání nechtěnému zalomení textu na dva řádky */
+    white-space: nowrap;
 }
 
 .navbar nav a:hover {
     color: #FF8C00;
 }
 
-/* Tlačítko Zavolat v menu */
 .btn-registrace {
     background-color: transparent;
     color: #FF8C00;
@@ -91,6 +84,7 @@ p {
     font-weight: bold;
     font-size: 0.9rem;
     transition: all 0.3s;
+    white-space: nowrap;
 }
 
 .btn-registrace:hover {
@@ -98,7 +92,52 @@ p {
     box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
 }
 
-/* Úvodní sekce (Hero) */
+/* --- LIŠTA OTEVÍRACÍ DOBY POD ZÁHLAVÍM --- */
+.top-bar-hours {
+    position: fixed;
+    top: 66px; /* Hned pod fixním menu */
+    width: 100%;
+    z-index: 99;
+    background: #1a1a1a;
+    border-bottom: 1px solid rgba(255, 140, 0, 0.2);
+    font-size: 0.82rem;
+    padding: 6px 0;
+    color: #e2e8f0;
+}
+
+.hours-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.hours-title {
+    color: #FF8C00;
+    font-weight: bold;
+}
+
+.hours-inline {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hours-inline span {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.hours-inline span.weekend {
+    color: #FF8C00;
+}
+
+/* --- ÚVODNÍ SEKCE (HERO) --- */
 .hero {
     position: relative;
     height: 100vh;
@@ -107,6 +146,7 @@ p {
     justify-content: center;
     text-align: center;
     overflow: hidden;
+    padding-top: 50px;
 }
 
 .hero-video {
@@ -130,7 +170,6 @@ p {
     z-index: 2;
 }
 
-/* Vycentrování obsahu úvodní sekce */
 .hero-content {
     position: relative;
     z-index: 3;
@@ -138,23 +177,18 @@ p {
     padding: 0 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Zajíští perfektní vycentrování loga i textů na střed */
-    text-align: center;
+    align-items: center;
 }
-¨
-/* Úprava loga nad nápadným nadpisem */
+
 .hero-logo {
-    margin-bottom: 15px; /* Mezera mezi logem a nadpisem H1 */
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    margin-bottom: 15px;
 }
 
 .hero-logo img {
-    max-width: 220px; /* Upravte podle potřeby, aby opticky ladilo k nadpisu */
+    max-width: 220px;
     height: auto;
     display: block;
-    filter: drop-shadow(0 0 12px rgba(255, 140, 0, 0.45)); /* Jemný oranžový zářící efekt */
+    filter: drop-shadow(0 0 12px rgba(255, 140, 0, 0.45));
 }
 
 .hero-content h1 {
@@ -198,7 +232,7 @@ p {
     transform: translateY(-2px);
 }
 
-/* Obecná sekce */
+/* --- OBECNÁ SEKCE --- */
 .section-container {
     padding: 120px 8% 80px 8%;
     max-width: 1200px;
@@ -473,7 +507,7 @@ p {
     margin-bottom: 6px;
 }
 
-/* --- FOTOGALERIE --- */
+/* FOTOGALERIE */
 .photo-section {
     position: relative;
     padding: 80px 20px;
@@ -523,7 +557,7 @@ p {
     font-size: 0.9rem;
 }
 
-/* --- RECENZE --- */
+/* RECENZE */
 .reviews-section {
     position: relative;
     padding: 80px 20px;
@@ -550,7 +584,7 @@ p {
     line-height: 1.6;
 }
 
-/* --- CENÍK AUTOSERVISU --- */
+/* CENÍK AUTOSERVISU */
 .price-table {
     width: 100%;
     border-collapse: collapse;
@@ -589,14 +623,7 @@ p {
     font-style: italic;
 }
 
-@media (max-width: 600px) {
-    .price-table th, .price-table td {
-        padding: 10px 8px;
-        font-size: 0.85rem;
-    }
-}
-
-/* --- SEKCE KONTAKTY --- */
+/* KONTAKTY & SOCIÁLNÍ SÍTĚ */
 .kontakty-section {
     position: relative;
     padding: 100px 20px;
@@ -655,12 +682,39 @@ p {
     color: #FF8C00;
 }
 
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 140, 0, 0.15);
+    border: 1px solid rgba(255, 140, 0, 0.5);
+    border-radius: 50%;
+    color: #FF8C00;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background: #FF8C00;
+    color: #121212;
+    transform: translateY(-3px);
+    box-shadow: 0 0 12px rgba(255, 140, 0, 0.5);
+}
+
 .kontakty-action {
     text-align: center;
     margin-top: 35px;
 }
 
-/* --- MAPA v Kontaktech --- */
 .mapa-wrapper {
     margin-top: 30px;
     border-radius: 12px;
@@ -671,34 +725,95 @@ p {
 
 .mapa-wrapper iframe {
     display: block;
-    filter: opacity(0.9) contrast(1.05);
 }
-/* --- RESPONSIVNÍ DESIGN PRO MOBILY A TABLETY --- */
 
-/* Pro obrazovky užší než 768px (telefony a malé tablety) */
+/* ZÁPATÍ (FOOTER) */
+.footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid rgba(255, 140, 0, 0.2);
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.footer-content p {
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.footer-subtext {
+    color: #94a3b8 !important;
+    font-size: 0.85rem !important;
+    margin-top: 4px;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.footer-socials a {
+    color: #94a3b8;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+    color: #FF8C00;
+}
+
+/* MOBILNÍ RESPONSIVITA */
 @media (max-width: 768px) {
-    
-    /* 1. Záhlaví a navigace */
     .navbar {
         flex-direction: column;
-        padding: 10px 15px;
-        position: relative; /* Na mobilu je lepší, když menu neodkrývá obrazovku */
+        padding: 10px;
+        position: relative;
+    }
+
+    .nav-logo img {
+        height: 38px;
+    }
+
+    /* Otevírací doba na mobilu */
+    .top-bar-hours {
+        position: relative;
+        top: 0;
+        padding: 10px 5px;
+        background: #161616;
+    }
+
+    .hours-wrapper {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .hours-inline {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Zobrazí dny ve 2 sloupcích pod sebou */
+        gap: 6px;
+        width: 100%;
+        font-size: 0.78rem;
+    }
+
+    .hours-inline span {
+        text-align: center;
+    }
+
+    .hours-inline span.weekend {
+        grid-column: 1 / -1; /* Sobota+Neděle roztáhnutá přes celou šířku */
     }
 
     .navbar nav {
-        margin-right: 0;
+        margin: 10px 0;
         width: 100%;
-        margin-bottom: 10px;
     }
 
     .navbar nav ul {
-        flex-wrap: wrap; /* Pokud se položky nevejdou, zalomí se pod sebe */
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 10px 15px;
-    }
-
-    .navbar nav a {
-        font-size: 0.85rem;
+        gap: 8px 12px;
     }
 
     .btn-registrace {
@@ -707,52 +822,26 @@ p {
         display: block;
     }
 
-    /* 2. Úvodní sekce (Hero) */
-    .hero-content h1 {
-        font-size: 2.2rem; /* Zmenšení velkého nadpisu pro mobil */
+    .hero {
+        padding-top: 20px;
+        height: auto;
+        min-height: 80vh;
+    }
+
+    .hero-logo img {
+        max-width: 200px;
     }
 
     .hero-subtitle {
         font-size: 1rem;
     }
 
-    .hero-logo img {
-        max-width: 150px; /* Menší logo na mobilu */
-    }
-
     .hero-buttons {
-        flex-direction: column; /* Tlačítka pod sebou místo vedle sebe */
+        flex-direction: column;
         width: 100%;
     }
 
-    .btn-primary, .btn-secondary {
-        width: 100%;
-        text-align: center;
-    }
-
-    /* 3. Odsazení sekcí a mřížky */
     .section-container {
         padding: 50px 5% 40px 5%;
-    }
-
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
-
-    .services-grid, 
-    .about-grid, 
-    .gallery-grid, 
-    .kontakty-grid {
-        grid-template-columns: 1fr; /* Všechny karty budou na mobilu v 1 sloupci */
-    }
-
-    /* 4. Tabulky a formuláře */
-    .calc-card, .about-card, .kontakty-card, .reviews-empty-box {
-        padding: 20px 15px;
-    }
-
-    .price-table th, .price-table td {
-        padding: 8px 5px;
-        font-size: 0.8rem;
     }
 }

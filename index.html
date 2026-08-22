@@ -3,49 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoShocPro PRO | Autoservis & Pneuservis</title>
+    <title>AutoShocPro | Autoservis & Pneuservis Slaný</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Ikony pro sociální sítě -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Záhlaví s navigací (čisté, bez loga) -->
-<header class="navbar">
-    <nav>
-        <ul>
-            <li><a href="#autoservis">Autoservis</a></li>
-            <li><a href="#pneuservis">Pneuservis</a></li>
-            <li><a href="#o-nas">Něco o nás</a></li>
-            <li><a href="#galerie">Naše práce</a></li>
-            <li><a href="#recenze">Recenze</a></li>
-            <li><a href="#kontakty">Kontakty</a></li>
-        </ul>
-    </nav>
-    <div class="header-actions">
-        <a href="tel:+420774204659" class="btn-registrace">Zavolat</a>
-    </div>
-</header>
-
-<!-- Úvodní sekce s vycentrovaným logem nad H1 -->
-<section id="uvod" class="hero">
-    <video autoplay loop muted playsinline class="hero-video">
-        <source src="video.mp4" type="video/mp4">
-        Váš prohlížeč nepodporuje přehrávání videa.
-    </video>
-    
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-        <div class="hero-logo">
-            <img src="logo.png" alt="AutoShocPro PRO Logo">
+    <!-- Záhlaví s navigací a logem vlevo -->
+    <header class="navbar">
+        <div class="nav-logo">
+            <a href="#uvod">
+                <img src="logo.png" alt="AutoShocPro Logo">
+            </a>
         </div>
-        <h1>AutoShocPro PRO</h1>
-        <p class="hero-subtitle">Profesionální péče o vaše vozidlo, opravy podvozků a rychlý pneuservis.</p>
-        <div class="hero-buttons">
-            <a href="#autoservis" class="btn-primary">Naše služby</a>
-            <a href="#kontakty" class="btn-secondary">Kde nás najdete</a>
+        <nav>
+            <ul>
+                <li><a href="#autoservis">Autoservis</a></li>
+                <li><a href="#pneuservis">Pneuservis</a></li>
+                <li><a href="#o-nas">Něco o nás</a></li>
+                <li><a href="#galerie">Naše práce</a></li>
+                <li><a href="#recenze">Recenze</a></li>
+                <li><a href="#kontakty">Kontakty</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="tel:+420774204659" class="btn-registrace"><i class="fa-solid fa-phone"></i> Zavolat</a>
+        </div>
+    </header>
+
+    <!-- Lišta s otevírací dobou pod záhlavím -->
+    <div class="top-bar-hours">
+        <div class="hours-wrapper">
+            <span class="hours-title"><i class="fa-regular fa-clock"></i> Otevírací doba:</span>
+            <div class="hours-inline">
+                <span><strong>Po:</strong> 6:00–15:00</span>
+                <span><strong>Út:</strong> 6:00–15:00</span>
+                <span><strong>St:</strong> 6:00–15:00</span>
+                <span><strong>Čt:</strong> 6:00–15:00</span>
+                <span><strong>Pá:</strong> 6:00–15:00</span>
+                <span class="weekend"><strong>So–Ne:</strong> zavřeno (nebo po předchozí domluvě)</span>
+            </div>
         </div>
     </div>
-</section>
+
+    <!-- Úvodní sekce -->
+    <section id="uvod" class="hero">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="video.mp4" type="video/mp4">
+            Váš prohlížeč nepodporuje přehrávání videa.
+        </video>
+        
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="logo.png" alt="AutoShocPro Logo">
+            </div>
+            <!-- Nadpis h1 jsme sloučili do loga, aby se text na mobilu nezdvojoval -->
+            <p class="hero-subtitle">Profesionální péče o vaše vozidlo, opravy podvozků a rychlý pneuservis.</p>
+            <div class="hero-buttons">
+                <a href="#autoservis" class="btn-primary">Naše služby</a>
+                <a href="#kontakty" class="btn-secondary">Kde nás najdete</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Sekce Autoservis -->
     <section id="autoservis" class="autoservis-section section-container">
@@ -57,7 +80,7 @@
         <div class="services-grid">
             <div class="service-card">
                 <h3>Opravy podvozků & Tlumiče</h3>
-                <p>Specializujeme se na diagnostiku a výměny tlumičů, pružin, čepů, ramen a ložisek pro maximální komfort a bezpečnou jízdu.</p>
+                <p>Výměny tlumičů, pružin, čepů, ramen a ložisek pro maximální komfort a bezpečnou jízdu.</p>
             </div>
 
             <div class="service-card">
@@ -221,7 +244,7 @@
                     <span>Předběžná cena úkonu</span>
                     <strong id="cena-hodnota">1 180 Kč</strong>
                     <p class="calc-disclaimer">
-                        Cena je orientační. Finální částka zahrnuje základní závaží do 30g/kolo. Nadstandardní závaží, ventily či chemie (vulkanizační lepidlo, tmelení) budou započítány dle reálné spotřeby.
+                        Cena je orientační. Finální částka zahrnuje základní závaží do 30g/kolo. Nadstandardní závaží, ventily či chemie budou započítány dle reálné spotřeby.
                     </p>
                 </div>
 
@@ -244,7 +267,7 @@
 
             <div class="about-content">
                 <p>
-                    Jsme menší, začínající auto a pneuservis. Nehraje si na obří autorizované centrum ani netvrdíme, že umíme zázraky na počkání. Co ale garantujeme, je <strong>poctivý přístup ke každému autu i zákazníkovi</strong>.
+                    Jsme menší auto a pneuservis. Nehraje si na obří autorizované centrum ani netvrdíme, že umíme zázraky na počkání. Co ale garantujeme, je <strong>poctivý přístup ke každému autu i zákazníkovi</strong>.
                 </p>
                 <p>
                     Do práce dáváme maximum. Každou zakázku řešíme pečlivě, neschováváme se za složité fráze a vždy s vámi předem otevřeně probereme, co je potřeba udělat a kolik to bude stát.
@@ -262,13 +285,13 @@
                 </div>
                 <div class="about-feature">
                     <span class="feature-title">Snaha vyhovět</span>
-                    <p>Hledáme řešení na míru vašim možnostem a potřebám vašeho vozu.</p>
+                    <p>Hledáme řešení na míru Vaším požadavkům a potřebám vašeho vozu.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sekce Naše práce (Fotogalerie) -->
+    <!-- Sekce Naše práce -->
     <section id="galerie" class="section-container photo-section">
         <div class="section-header">
             <h2>Naše práce</h2>
@@ -277,16 +300,16 @@
 
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="" alt="" onerror="this.src=''">
-                <div class="gallery-overlay"><span>Připravujeme</span></div>
+                <img src="prace-1.jpg" alt="Ukázka práce 1" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Přezutí+kol'">
+                <div class="gallery-overlay"><span>Kompletní přezutí ALU sady</span></div>
             </div>
             <div class="gallery-item">
-                <img src="" alt="" onerror="this.src=''">
-                <div class="gallery-overlay"><span>Připravujeme</span></div>
+                <img src="prace-2.jpg" alt="Ukázka práce 2" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Oprava+defektu'">
+                <div class="gallery-overlay"><span>Oprava průpichu hříbkem</span></div>
             </div>
             <div class="gallery-item">
-                <img src="" alt="" onerror="this.src=''">
-                <div class="gallery-overlay"><span>Připravujeme</span></div>
+                <img src="prace-3.jpg" alt="Ukázka práce 3" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Vyvažování'">
+                <div class="gallery-overlay"><span>Přesné vyvážení kol</span></div>
             </div>
         </div>
     </section>
@@ -337,10 +360,20 @@
                     <span class="kontakt-label">Sídlo & Adresa dílny</span>
                     <strong>Pastýřská 429, 274 01, Slaný</strong>
                 </div>
+
+                <!-- Příprava pro sociální sítě -->
+                <div class="kontakt-item full-width text-center">
+                    <span class="kontakt-label">Sledujte nás na sociálních sítích</span>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/420774204659" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
             </div>
 
             <div class="kontakty-action">
-                <a href="tel:+420774204659" class="btn-glass-neon">Zavolat do servisu</a>
+                <a href="tel:+420774204659" class="btn-glass-neon"><i class="fa-solid fa-phone"></i> Zavolat do servisu</a>
             </div>
 
             <!-- Mapa Google -->
@@ -357,6 +390,19 @@
             </div>
         </div>
     </section>
+
+    <!-- Zápatí (Footer) -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 AutoShocPro | Všechna práva vyhrazena.</p>
+            <p class="footer-subtext">Autoservis a Pneuservis Slaný</p>
+            <div class="footer-socials">
+                <a href="https://facebook.com" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/420774204659" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <!-- JavaScript obsluha tlačítek a kalkulátoru -->
     <script>
