@@ -673,3 +673,86 @@ p {
     display: block;
     filter: opacity(0.9) contrast(1.05);
 }
+/* --- RESPONSIVNÍ DESIGN PRO MOBILY A TABLETY --- */
+
+/* Pro obrazovky užší než 768px (telefony a malé tablety) */
+@media (max-width: 768px) {
+    
+    /* 1. Záhlaví a navigace */
+    .navbar {
+        flex-direction: column;
+        padding: 10px 15px;
+        position: relative; /* Na mobilu je lepší, když menu neodkrývá obrazovku */
+    }
+
+    .navbar nav {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .navbar nav ul {
+        flex-wrap: wrap; /* Pokud se položky nevejdou, zalomí se pod sebe */
+        justify-content: center;
+        gap: 10px 15px;
+    }
+
+    .navbar nav a {
+        font-size: 0.85rem;
+    }
+
+    .btn-registrace {
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+
+    /* 2. Úvodní sekce (Hero) */
+    .hero-content h1 {
+        font-size: 2.2rem; /* Zmenšení velkého nadpisu pro mobil */
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-logo img {
+        max-width: 150px; /* Menší logo na mobilu */
+    }
+
+    .hero-buttons {
+        flex-direction: column; /* Tlačítka pod sebou místo vedle sebe */
+        width: 100%;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 3. Odsazení sekcí a mřížky */
+    .section-container {
+        padding: 50px 5% 40px 5%;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .services-grid, 
+    .about-grid, 
+    .gallery-grid, 
+    .kontakty-grid {
+        grid-template-columns: 1fr; /* Všechny karty budou na mobilu v 1 sloupci */
+    }
+
+    /* 4. Tabulky a formuláře */
+    .calc-card, .about-card, .kontakty-card, .reviews-empty-box {
+        padding: 20px 15px;
+    }
+
+    .price-table th, .price-table td {
+        padding: 8px 5px;
+        font-size: 0.8rem;
+    }
+}
