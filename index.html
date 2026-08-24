@@ -167,19 +167,15 @@
                         <td><strong>Základní seřízení sbíhavosti (mechanické)</strong></td>
                         <td>350 Kč</td>
                     </tr>
-
-
                 </tbody>
             </table>
 
             <div class="price-disclaimer">
-
                 <p>* Nejsme plátci DPH.</p>
                 <p>* Ceny úkonů jsou orientační a udávají cenu pouze za práci (náhradní díly a spotřební materiál nejsou v ceníku započítány).</p>
                 <p>* „Uvedené ceny jsou orientační a platí pro standardní průběh opravy. V případě zarezlých, poškozených nebo jinak komplikovaných spojů bude práce účtována v hodinové sazbě.“</p>
                 <p>* „Základní seřízení sbíhavosti slouží k hrubému srovnání nápravy po mechanických opravách podvozku. Pro kompletní 3D měření geometrie doporučujeme navštívit specialized diagnostické centrum.“</p>
             </div>
-
 
             <div style="margin-top: 20px; text-align: center;">
                 <a href="#kontakty" class="btn-glass inline-block py-3 px-6">
@@ -315,18 +311,84 @@
             <p>Ukázka z naší dílny – přezouvání, opravy i servisní úkony.</p>
         </div>
 
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="prace-1.jpg" alt="Ukázka práce 1" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Přezutí+kol'">
-                <div class="gallery-overlay"><span>Kompletní přezutí ALU sady</span></div>
+        <!-- Tlačítko pro rozbalení podokna s ukázkami prací -->
+        <div class="calc-toggle-wrapper">
+            <button id="btn-toggle-prace" class="btn-glass-neon" onclick="togglePraceDetail()">
+                Ukaž naši práci
+            </button>
+        </div>
+
+        <!-- Rozbalovací podokno -->
+        <div id="rozbalovaci-prace" class="calc-card hidden-calc price-table-card" style="margin-top: 20px; max-width: 900px;">
+            <div style="text-align: left; padding: 10px;">
+                
+                <!-- NOVÁ SEKCE: Naše zázemí (3 fotky) -->
+                <div style="margin-bottom: 35px;">
+                    <h3 style="color: #ff8c00; margin-bottom: 15px;"><i class="fa-solid fa-store"></i> Naše zázemí</h3>
+                    <div class="gallery-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                        <div class="gallery-item">
+                            <img src="zazemi-dilna-1.jpg" alt="Naše zázemí 1" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Zazemi+1'">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="zazemi-dilna-2.jpg" alt="Naše zázemí 2" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Zazemi+2'">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="zazemi-dilna-3.jpg" alt="Naše zázemí 3" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Zazemi+3'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ford Transit: Výměna motoru (3 fotky) -->
+                <div style="margin-bottom: 35px;">
+                    <h3 style="color: #ff8c00; margin-bottom: 15px;"><i class="fa-solid fa-car"></i> Ford Transit – Výměna motoru</h3>
+                    <div class="gallery-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                        <div class="gallery-item">
+                            <img src="prace-ford-transit-1.jpg" alt="Ford Transit výměna motoru 1" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Motor+1'">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="prace-ford-transit-2.jpg" alt="Ford Transit výměna motoru 2" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Motor+2'">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="prace-ford-transit-3.jpg" alt="Ford Transit výměna motoru 3" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Motor+3'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ford: Oprava karoserie (9 fotek) -->
+                <div style="margin-bottom: 35px;">
+                    <h3 style="color: #ff8c00; margin-bottom: 15px;"><i class="fa-solid fa-wrench"></i> Ford – Oprava karoserie</h3>
+                    <div class="gallery-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
+                        <div class="gallery-item"><img src="prace-ford-karoserie-1.jpg" alt="Karoserie 1" onerror="this.src='https://via.placeholder.com/300x200/1e1e1e/FF8C00?text=Karoserie+1'"></div>
+                        <div class="gallery-item"><img src="prace-ford-karoserie-2.jpg" alt="Karoserie 2" onerror="this.src='https://via.placeholder.com/300x200/1e1e1e/FF8C00?text=Karoserie+2'"></div>
+                        <div class="gallery-item"><img src="prace-ford-karoserie-3.jpg" alt="Karoserie 3" onerror="this.src='https://via.placeholder.com/300x200/1e1e1e/FF8C00?text=Karoserie+3'"></div>
+                        <div class="gallery-item"><img src="prace-ford-karoserie-4.jpg" alt="Karoserie 4" onerror="this.src='https://via.placeholder.com/300x200/1e1e1e/FF8C00?text=Karoserie+4'"></div>
+                        <div class="gallery-item"><img src="prace-ford-karoserie-5.jpg" alt="Karoserie 5" onerror="this.src='https://via.placeholder.com/300x200/1e1e1e/FF8C00?text=Karoserie+5'"></div>
+                        <div class="gallery-item"><img src="prace-ford-karoserie-6.jpg" alt="Karoserie 6" onerror="this.src='https://via.placeholder.com/300x200/1e1e1e/FF8C00?text=Karoserie+6'"></div>
+                        <div class="gallery-item"><img src="prace-ford-karoserie-7.jpg" alt="Karoserie 7" onerror="this.src='https://via.placeholder.com/300x200/1e1e1e/FF8C00?text=Karoserie+7'"></div>
+                        <div class="gallery-item"><img src="prace-ford-karoserie-8.jpg" alt="Karoserie 8" onerror="this.src='https://via.placeholder.com/300x200/1e1e1e/FF8C00?text=Karoserie+8'"></div>
+                        <div class="gallery-item"><img src="prace-ford-karoserie-9.jpg" alt="Karoserie 9" onerror="this.src='https://via.placeholder.com/300x200/1e1e1e/FF8C00?text=Karoserie+9'"></div>
+                    </div>
+                </div>
+
+                <!-- Leštění světel (2 fotky) -->
+                <div>
+                    <h3 style="color: #ff8c00; margin-bottom: 15px;"><i class="fa-solid fa-lightbulb"></i> Leštění světel</h3>
+                    <div class="gallery-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+                        <div class="gallery-item">
+                            <img src="prace-lesteni-svetel-1.jpg" alt="Leštění světel 1" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Svetla+1'">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="prace-lesteni-svetel-2.jpg" alt="Leštění světel 2" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Svetla+2'">
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="gallery-item">
-                <img src="prace-2.jpg" alt="Ukázka práce 2" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Oprava+defektu'">
-                <div class="gallery-overlay"><span>Oprava průpichu hříbkem</span></div>
-            </div>
-            <div class="gallery-item">
-                <img src="prace-3.jpg" alt="Ukázka práce 3" onerror="this.src='https://via.placeholder.com/400x300/1e1e1e/FF8C00?text=Vyvažování'">
-                <div class="gallery-overlay"><span>Přesné vyvážení kol</span></div>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <a href="#kontakty" class="btn-glass inline-block py-3 px-6">
+                    Máte podobný problém? Kontaktujte nás
+                </a>
             </div>
         </div>
     </section>
@@ -364,7 +426,7 @@
                 <div class="kontakt-item">
                     <span class="kontakt-label">Vedoucí servisu</span>
                     <strong>Jiří Moucha</strong>
-                    <strong>IČO:26983301</strong>
+                    <strong style="display:block; margin-top:4px;">IČO: 26983301</strong>
                 </div>
 
                 <div class="kontakt-item">
@@ -443,6 +505,15 @@
                 spocitejCenu();
             } else {
                 calc.classList.add('hidden-calc');
+            }
+        }
+
+        function togglePraceDetail() {
+            let prace = document.getElementById('rozbalovaci-prace');
+            if (prace.classList.contains('hidden-calc')) {
+                prace.classList.remove('hidden-calc');
+            } else {
+                prace.classList.add('hidden-calc');
             }
         }
 
